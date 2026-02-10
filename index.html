@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Internetda o‘zini tutish qoidalari</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+}
+
+header {
+    padding: 40px 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.12);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+    color: #ffdd57;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.rule {
+    margin: 10px 0;
+    padding: 12px;
+    background: rgba(0,0,0,0.25);
+    border-left: 5px solid #00ffcc;
+    border-radius: 8px;
+}
+
+/* GAME */
+.game button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: #00ffcc;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.game button:hover {
+    background: #00cfa5;
+}
+
+#result {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #ffdd57;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌐 Internetda o‘zini tutish qoidalari</h1>
+    <p>7–8-sinflar uchun interaktiv suhbat va o‘yin</p>
+</header>
+
+<section>
+
+<div class="card">
+<h2>📌 Internet nima?</h2>
+<p>
+Internet — bu bilim, aloqa va ko‘ngilochar manba. Ammo noto‘g‘ri foydalanilsa,
+u xavfli bo‘lishi mumkin. Shuning uchun har bir o‘quvchi internetda
+<strong>o‘zini himoya qilishni</strong> bilishi kerak.
+</p>
+</div>
+
+<div class="card">
+<h2>🛡️ Internetda o‘zini tutishning 8 ta OLTIN qoidasi</h2>
+
+<div class="rule">1️⃣ Shaxsiy ma’lumotlaringni begonalarga bermagin.</div>
+<div class="rule">2️⃣ Internetda hamma ham do‘st emasligini unutma.</div>
+<div class="rule">3️⃣ Hurmat bilan yoz — haqorat jinoyatga olib keladi.</div>
+<div class="rule">4️⃣ O‘zing yoki boshqaning rasmini ruxsatsiz joylama.</div>
+<div class="rule">5️⃣ Shubhali link va fayllarni ochma.</div>
+<div class="rule">6️⃣ Internetga ketgan vaqtni nazorat qil.</div>
+<div class="rule">7️⃣ Cyberbulling — jim qoladigan muammo emas.</div>
+<div class="rule">8️⃣ Muammo bo‘lsa, kattalarga aytish — jasorat.</div>
+
+</div>
+
+<div class="card">
+<h2>⚠️ Internetdagi xavflar</h2>
+<ul>
+<li>🔴 Aldov va firibgarlik</li>
+<li>🔴 Begonalar bilan yozishmalar</li>
+<li>🔴 Kiberbulling</li>
+<li>🔴 Soxta o‘yinlar va “chellenjlar”</li>
+<li>🔴 Internetga qaramlik</li>
+</ul>
+</div>
+
+<div class="card game">
+<h2>🎮 Interaktiv o‘yin: To‘g‘rimi yoki noto‘g‘ri?</h2>
+<p><strong>Savol:</strong> Notanish odam sizdan telefon raqamingizni so‘radi. Nima qilasiz?</p>
+
+<button onclick="checkAnswer(false)">Beraman, zarar yo‘q</button>
+<button onclick="checkAnswer(true)">Bermayman va kattalarga aytaman</button>
+<button onclick="checkAnswer(false)">Avval do‘stlashib olaman</button>
+
+<p id="result"></p>
+</div>
+
+<div class="card">
+<h2>🌱 Xulosa</h2>
+<p>
+Internet — bu imkoniyat. Uni to‘g‘ri ishlatsak, u bizni rivojlantiradi.
+Noto‘g‘ri ishlatsak, muammo tug‘diradi.
+</p>
+<p><strong>Qoidani esla:</strong> Avval o‘yla — keyin bos!</p>
+</div>
+
+</section>
+
+<footer>
+    © Maktab psixologi uchun interaktiv material
+</footer>
+
+<script>
+function checkAnswer(correct) {
+    let result = document.getElementById("result");
+    if (correct) {
+        result.innerHTML = "✅ To‘g‘ri! Sen o‘zingni himoya qila olasan!";
+    } else {
+        result.innerHTML = "❌ Noto‘g‘ri. Bu xavfli bo‘lishi mumkin!";
+    }
+}
+</script>
+
+</body>
+</html>
