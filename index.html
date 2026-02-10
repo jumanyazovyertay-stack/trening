@@ -7,58 +7,54 @@
 
 <style>
 body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(120deg,#e0f2f1,#f1f8e9);
-    margin:0;
-    animation: fadeIn 1.2s;
+ font-family: Arial, sans-serif;
+ background: linear-gradient(120deg,#e0f7fa,#f1f8e9);
+ margin:0;
+ animation:fadeIn 1s;
 }
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
 header{
-    background:#00796b;
-    color:white;
-    padding:25px;
-    text-align:center;
-    animation: slideDown 1s;
+ background:#00796b;
+ color:white;
+ padding:25px;
+ text-align:center;
+ animation:slideDown 1s;
 }
 @keyframes slideDown{
-    from{transform:translateY(-50px); opacity:0;}
-    to{transform:translateY(0); opacity:1;}
+ from{transform:translateY(-40px);opacity:0}
+ to{transform:translateY(0);opacity:1}
 }
+
 section{
-    background:white;
-    margin:20px;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.15);
-    animation: fadeUp 1s;
+ background:white;
+ margin:20px;
+ padding:20px;
+ border-radius:15px;
+ box-shadow:0 4px 10px rgba(0,0,0,0.15);
+ animation:fadeUp 1s;
 }
 @keyframes fadeUp{
-    from{transform:translateY(30px); opacity:0;}
-    to{transform:translateY(0); opacity:1;}
+ from{transform:translateY(30px);opacity:0}
+ to{transform:translateY(0);opacity:1}
 }
+
 h2{color:#00695c}
+ul{line-height:1.7}
+
 button{
-    padding:10px 15px;
-    border:none;
-    border-radius:10px;
-    margin:5px 0;
-    cursor:pointer;
-    background:#0288d1;
-    color:white;
-    width:100%;
+ padding:10px;
+ margin:5px 0;
+ width:100%;
+ border:none;
+ border-radius:10px;
+ background:#0288d1;
+ color:white;
+ cursor:pointer;
 }
-button:hover{
-    background:#01579b;
-}
-.correct{background:#4caf50!important}
-.wrong{background:#f44336!important}
-.result{
-    font-weight:bold;
-    margin-top:10px;
-}
+button:hover{background:#01579b}
+
+.result{font-weight:bold;margin-top:10px}
 </style>
 </head>
 
@@ -66,66 +62,103 @@ button:hover{
 
 <header>
 <h1>Biz zararli odatlarga qarshimiz</h1>
-<p>Interaktiv trening va test platformasi</p>
+<p>Psixologik treninglar va interaktiv testlar</p>
 </header>
 
+<!-- 1-TRAINING -->
+<section>
+<h2>🎯 Trening: “Nima zararli, nima foydali”</h2>
+<p><b>Maqsad:</b> O‘quvchilarda foydali va zararli odatlarni ajrata olish, sog‘lom tanlov qilish.</p>
+
+<ul>
+<li>📘 Kitob o‘qish</li>
+<li>🏃 Sport bilan shug‘ullanish</li>
+<li>📱 Telefonni me’yoridan ortiq ishlatish</li>
+<li>😡 Masxara va salbiy gaplar</li>
+</ul>
+
+<p><b>Xulosa:</b> Kuchli inson — to‘g‘ri tanlov qila oladigan inson.</p>
+</section>
+
+<!-- 2-TRAINING -->
+<section>
+<h2>💪 Trening: “Rad etish ko‘nikmalari — mening tanlovim sog‘liq”</h2>
+<p><b>Maqsad:</b> Salbiy bosimga “YO‘Q” deyish ko‘nikmasini shakllantirish.</p>
+
+<ul>
+<li>Aniq “YO‘Q” deyish</li>
+<li>Sabab bilan rad etish</li>
+<li>Alternativa taklif qilish</li>
+<li>Vaziyatni tark etish</li>
+</ul>
+
+<p><b>Xulosa:</b> Sog‘lom hayot — o‘zingni asrash.</p>
+</section>
+
+<!-- 3-SUHBAT -->
+<section>
+<h2>🛡️ Suhbat: “Internetda o‘zini tutish qoidalari”</h2>
+
+<ul>
+<li>Shaxsiy ma’lumotni bermaslik</li>
+<li>Notanishlarga ishonmaslik</li>
+<li>Madaniyatli yozish</li>
+<li>Shubhali havolani ochmaslik</li>
+<li>Muammo bo‘lsa kattalarga murojaat qilish</li>
+</ul>
+
+<p><b>Xulosa:</b> Internet — vosita, mas’uliyat muhim.</p>
+</section>
+
+<!-- TEST -->
 <section>
 <h2>🧠 10 savollik test</h2>
+
 <p id="question"></p>
 <div id="answers"></div>
-<div id="progress"></div>
+<p id="progress"></p>
 <div id="finalResult" class="result"></div>
 </section>
 
 <script>
-const quiz = [
- {q:"Telefonni me’yoridan ortiq ishlatish qanday?", a:["Foydali","Zararli"], c:1},
- {q:"Sport bilan shug‘ullanish nima beradi?", a:["Zarar","Sog‘liq"], c:1},
- {q:"Do‘st yomon ishga undasa nima deysiz?", a:["Yo‘q","Mayli"], c:0},
- {q:"Internetda parolni berish mumkinmi?", a:["Yo‘q","Ha"], c:0},
- {q:"Darsdan qochish oqibati qanday?", a:["Salbiy","Foydali"], c:0},
- {q:"Salbiy bosimga berilish to‘g‘rimi?", a:["Yo‘q","Ha"], c:0},
- {q:"Kitob o‘qish nima qiladi?", a:["Rivojlantiradi","Zarar"], c:0},
- {q:"Notanish odamga rasm yuborish?", a:["Xavfli","To‘g‘ri"], c:0},
- {q:"Sog‘lom tanlov bu?", a:["Mas’uliyat","Majburiyat"], c:0},
- {q:"Kuchli inson kim?", a:["To‘g‘ri tanlov qiladigan","Hech xato qilmaydigan"], c:0}
+const quiz=[
+{q:"Telefonni ko‘p ishlatish qanday?",a:["Foydali","Zararli"],c:1},
+{q:"Sport nima beradi?",a:["Sog‘liq","Zarar"],c:0},
+{q:"Yomon ishga undasa?",a:["Yo‘q deyman","Roziman"],c:0},
+{q:"Parolni berish mumkinmi?",a:["Yo‘q","Ha"],c:0},
+{q:"Darsdan qochish?",a:["Salbiy","Yaxshi"],c:0},
+{q:"Kitob o‘qish?",a:["Rivoj","Zarar"],c:0},
+{q:"Notanish odamga rasm?",a:["Xavfli","To‘g‘ri"],c:0},
+{q:"Sog‘lom tanlov?",a:["Mas’uliyat","Majburiyat"],c:0},
+{q:"Bosimga berilish?",a:["Yo‘q","Ha"],c:0},
+{q:"Kuchli inson?",a:["Tanlov qiladigan","Xato qilmaydigan"],c:0}
 ];
 
-let index=0, score=0;
+let i=0,score=0;
 
-function loadQuestion(){
- document.getElementById("progress").innerHTML =
- `Savol ${index+1} / ${quiz.length}`;
- document.getElementById("question").innerHTML = quiz[index].q;
- let html="";
- quiz[index].a.forEach((ans,i)=>{
-   html+=`<button onclick="check(${i})">${ans}</button>`;
+function loadQ(){
+ document.getElementById("progress").innerHTML=`Savol ${i+1}/10`;
+ document.getElementById("question").innerHTML=quiz[i].q;
+ let h="";
+ quiz[i].a.forEach((x,j)=>{
+  h+=`<button onclick="check(${j})">${x}</button>`;
  });
- document.getElementById("answers").innerHTML=html;
+ document.getElementById("answers").innerHTML=h;
 }
-
-function check(i){
- if(i===quiz[index].c) score++;
- index++;
- if(index<quiz.length){
-   loadQuestion();
- }else{
-   showResult();
- }
+function check(j){
+ if(j===quiz[i].c) score++;
+ i++;
+ if(i<quiz.length) loadQ();
+ else result();
 }
-
-function showResult(){
- let text="";
- if(score<=4) text="⚠️ E’tibor! Bilimingizni mustahkamlash kerak.";
- else if(score<=7) text="👍 Yaxshi natija, lekin yana yaxshilash mumkin.";
- else text="🌟 A’lo! Siz sog‘lom va ongli tanlov qilasiz!";
+function result(){
+ let text= score>=8 ? "🌟 A’lo!" : score>=5 ? "👍 Yaxshi" : "⚠️ Qayta ishlash kerak";
  document.getElementById("finalResult").innerHTML=
- `Siz ${quiz.length} savoldan ${score} tasiga to‘g‘ri javob berdingiz.<br>${text}`;
- document.getElementById("answers").innerHTML="";
+ `Natija: ${score}/10<br>${text}`;
  document.getElementById("question").innerHTML="";
+ document.getElementById("answers").innerHTML="";
 }
-
-loadQuestion();
+loadQ();
 </script>
 
 </body>
